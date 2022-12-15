@@ -44,7 +44,7 @@ res.redirect("/registro");
 const prestamos = require("./models/prestamos.js")
 
 
-
+//agregar prestamo bd
 
 app.post("/tomarprestado", async function (req, res) {
 
@@ -58,13 +58,26 @@ app.post("/tomarprestado", async function (req, res) {
         notebook: req.body.notebook
     })
     nuevoPrestamo.save();
-    //aGREGAR A LA BASE EL PRESTAMO
+    
     
  res.redirect('/')
 
   
 })
 
+//Eliminar de la bd prestamo
+
+app.post("/borrarprestamo/:id", async function (req, res) {
+
+  console.log(req.body.notebook)
+  await notebooks.findOneAndUpdate({nombre: req.body.notebook}, {  //Editar campos del perfil
+    prestado: false 
+  })
+
+  await prestamos.findByIdAndDelete(req.params.id);
+
+  res.redirect('/registro')
+})
 
 
 

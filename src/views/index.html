@@ -17,7 +17,7 @@
       <a class="btn btn-primary" href="http://localhost:3000/registro" role="button">REGISTRO</a>
       
     <div class="mb-3">
-      <label for="ipNombre" class="form-label" >Nombre y Apellido</label>
+      <label for="ipNombre" class="form-label">Nombre y Apellido</label>
       <input
         name="nombre"
         size="10"
@@ -26,12 +26,14 @@
         class="form-control"
         id="ipNombre"
         placeholder="NOMBRE COMPLETO"
+        required
       />
     </div>
-    <div class="hstack gap-2">
     
-    <select name="curso" style="width: min-content;" class="form-select" aria-label="Curso" id="ipCurso">
-      <option selected>ELIGA SU CURSO</option>
+    <div class="hstack gap-2">
+      <p>  ELIGA SU CURSO <p>
+        <select name="curso" style="width: min-content;" class="form-select" aria-label="Curso" id="ipCurso">
+
       <option value="1° 1° Ciclo Basico">1° 1° Ciclo Basico</option>
       <option value="1° 2° Ciclo Basico">1° 2° Ciclo Basico</option>
       <option value="1° 3° Ciclo Basico">1° 3° Ciclo Basico</option>
@@ -65,9 +67,9 @@
       
     </select>
 
-    
+    <p>  EQUIPOS  DISPONIBLE <p>
     <select name="notebook" style="width: min-content;" class="form-select" aria-label="Eliga la PC" id="IPP Ciclo SuperiorC">
-      <option selected>EQUIPOS DISPONIBLE</option>
+      
    <%notebooks.forEach(notebook=> { %>
     <% if(!notebook.prestado){ %>
     <option value="<%= notebook.nombre %>">

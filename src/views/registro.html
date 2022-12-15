@@ -21,42 +21,33 @@
     </form>
 
 </div> 
-    <div> 
-    <%prestamos.forEach(prestamos=> { %>
-        
-        <p> <%= prestamos.nombre %></p> 
-        <p> <%= prestamos.curso %></p>
-        <p> <%= prestamos.notebook %></p>
-        <% })%>
-        </div>
+
         <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Notebook</th>
+      <th scope="col"> </th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
+    <%prestamos.forEach(prestamos=> { %>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= prestamos.nombre %></td>
+      <td><%= prestamos.curso %></td>
+
+    
+      <td><%= prestamos.notebook %></td>
+      <td> 
+        <form method="post" action="/borrarprestamo/<%= prestamos.id %>" >
+            <input type="text" name="notebook" value="<%= prestamos.notebook %>" hidden >
+        <button type="submit" class="btn btn-danger" value="borrar"> Borrar  </button>
+    </form>  
+    </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+    <% })%>
+      </tbody>
 </table>
     <script src="/bootstrap/js/bootstrap.min.js"></script>  
 </body>
