@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link href="/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+</head>
+<body>
+    <div>
+    <a class="btn btn-primary" href="/" role="button">INICIO </a>
+    </div>
+
+    <form action="/addnotebook" method="post">
+        <label for="addntb">Agregue Equipo</label>
+        <input id="addntb" type="text" name="notebook" required>
+        <button type="submit" value="Agregar"> Agregar </button>
+    </form>
+
+</div> 
+    <div> 
+    <%prestamos.forEach(prestamos=> { %>
+        
+        <p> <%= prestamos.nombre %></p> 
+        <p> <%= prestamos.curso %></p>
+        <p> <%= prestamos.notebook %></p>
+        <% })%>
+        </div>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>  
+</body>
+</html>
