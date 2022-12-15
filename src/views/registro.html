@@ -19,10 +19,15 @@
         <input id="addntb" type="text" name="notebook" required>
         <button type="submit" value="Agregar"> Agregar </button>
     </form>
+    
+    <form action="/addcurso" method="post">
+      <label for="addcurso">Agregue Curso</label>
+      <input id="addcurso" type="text" name="curso" required>
+      <button type="submit" value="Agregar"> Agregar </button>
 
 </div> 
 
-        <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">Nombre</th>
@@ -49,6 +54,33 @@
     <% })%>
       </tbody>
 </table>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <%notebooks.forEach(notebook=> { %>
+    <tr>
+      <td><%= notebook.nombre %></td>
+      <td> 
+        <form method="post" action="/deletenotebook/<%= notebook.id %>" >
+            <input type="text" name="notebook" value="<%= notebook.nombre %>" hidden >
+        <button type="submit" class="btn btn-danger" value="borrar"> Borrar  </button>
+    </form>  
+    </td>
+    </tr>
+    <% })%>
+      </tbody>
+</table>
+
+
+
+
     <script src="/bootstrap/js/bootstrap.min.js"></script>  
 </body>
 </html>

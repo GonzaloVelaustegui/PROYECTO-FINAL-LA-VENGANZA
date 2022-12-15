@@ -31,8 +31,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //base de datos
 
+//agregar ntb
 app.post("/addnotebook", function (req, res) {
-    console.log(req.body)
+
+
     let nuevaNotebook = new notebooks({
     nombre: req.body.notebook,
 });
@@ -78,6 +80,34 @@ app.post("/borrarprestamo/:id", async function (req, res) {
 
   res.redirect('/registro')
 })
+
+//agregar cursos 
+
+const cursos = require("./models/cursos")
+
+app.post("/addcurso", function (req, res) {
+
+
+    let nuevocurso = new cursos({
+    nombre: req.body.curso,
+});
+nuevocurso.save();
+res.redirect("/registro");
+});
+
+//eliminar ntb
+
+app.post("/deletenotebook/:id", async function (req, res) {
+  
+    await notebooks.findByIdAndDelete(req.params.id);
+  
+    res.redirect('/registro')
+  })
+
+
+
+
+
 
 
 
